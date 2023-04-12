@@ -1,11 +1,14 @@
 package eu.uiniroma2.ing.iswp.olympus;
 
+import eu.uiniroma2.ing.iswp.olympus.ulities.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class HelloApplication extends Application {
     @Override
@@ -18,6 +21,12 @@ public class HelloApplication extends Application {
     }
 
     public static void main(String[] args) {
+        try {
+            CreateDefaultDB.createDefaultDB();
+        } catch (FileNotFoundException | SQLException err) {
+            err.printStackTrace();
+
+        }
         launch();
     }
 }
