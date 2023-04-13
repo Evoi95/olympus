@@ -1,6 +1,7 @@
 package eu.uiniroma2.ing.iswp.olympus;
 
 import eu.uiniroma2.ing.iswp.olympus.dao.StudenteDao;
+import eu.uiniroma2.ing.iswp.olympus.entity.Studente;
 import eu.uiniroma2.ing.iswp.olympus.ulities.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -29,7 +30,9 @@ public class HelloApplication extends Application {
             col.add("cognome");
             col.add("email");
             CreateDefaultDB.createDefaultDB();
-            StudenteDao.getStudenteData(1,col );
+            Studente std = new Studente();
+            std.setId(1);
+            StudenteDao.getStudenteData(std,col );
         } catch (FileNotFoundException | SQLException err) {
             err.printStackTrace();
 

@@ -34,23 +34,21 @@ public class StudenteDao {
         return false;
     }
 
-    public static boolean eliminaStudente(int idStudente)
+    public static boolean eliminaStudente(Studente studente)
     {
         return false;
     }
 
     //Faccio un for per le colonne dello Studente senza scrivere
     // una get per tutte le colonne
-    public static ArrayList<Studente> getStudenteData(int idStudente, ArrayList<String> colunmName) throws SQLException {
+    public static ArrayList<Studente> getStudenteData(Studente studente, ArrayList<String> colunmName) throws SQLException {
         ArrayList<Studente> students = new ArrayList<>();
-        Studente studente = new Studente();
         conn = ConnToDb.generalConnection();
         st=conn.createStatement();
         if (!colunmName.isEmpty())
         {
-            studente.setId(idStudente);
             for (String colunm : colunmName) {
-                query="SELECT "+colunm+" FROM olympus_db.studente where id = '"+idStudente+"'";
+                query="SELECT "+colunm+" FROM olympus_db.studente where id = '"+studente.getId()+"'";
                 System.out.println(query);
                 rs = st.executeQuery(query);
                 if(rs.next())
