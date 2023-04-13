@@ -1,5 +1,6 @@
 package eu.uiniroma2.ing.iswp.olympus;
 
+import eu.uiniroma2.ing.iswp.olympus.dao.StudenteDao;
 import eu.uiniroma2.ing.iswp.olympus.ulities.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +10,7 @@ import javafx.stage.Stage;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class HelloApplication extends Application {
     @Override
@@ -22,7 +24,12 @@ public class HelloApplication extends Application {
 
     public static void main(String[] args) {
         try {
+            ArrayList<String> col = new ArrayList<>();
+            col.add("nome");
+            col.add("cognome");
+            col.add("email");
             CreateDefaultDB.createDefaultDB();
+            StudenteDao.getStudenteData(1,col );
         } catch (FileNotFoundException | SQLException err) {
             err.printStackTrace();
 

@@ -26,6 +26,8 @@ public class Studente {
         this.corsoDiStudi = corsoDiStudi;
     }
 
+    public Studente() {
+    }
 
     // Getter
 
