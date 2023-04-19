@@ -1,5 +1,7 @@
 package eu.uiniroma2.ing.iswp.olympus.entity;
 
+import java.util.Objects;
+
 public class Professore {
 
     private int id;
@@ -84,4 +86,31 @@ public class Professore {
         this.ruolo = ruolo;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Professore)) return false;
+        Professore that = (Professore) o;
+        return getId() == that.getId() && Objects.equals(getNome(), that.getNome()) && Objects.equals(getCognome(), that.getCognome()) && Objects.equals(getEmail(), that.getEmail()) && Objects.equals(getPassword(), that.getPassword()) && Objects.equals(getCodiceFiscale(), that.getCodiceFiscale()) && Objects.equals(getMatricola(), that.getMatricola()) && Objects.equals(getMateria(), that.getMateria()) && Objects.equals(getRuolo(), that.getRuolo());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getNome(), getCognome(), getEmail(), getPassword(), getCodiceFiscale(), getMatricola(), getMateria(), getRuolo());
+    }
+
+    @Override
+    public String toString() {
+        return "Professore{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", cognome='" + cognome + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", codiceFiscale='" + codiceFiscale + '\'' +
+                ", matricola='" + matricola + '\'' +
+                ", materia='" + materia + '\'' +
+                ", ruolo='" + ruolo + '\'' +
+                '}';
+    }
 }
